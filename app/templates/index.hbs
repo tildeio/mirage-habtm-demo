@@ -1,0 +1,53 @@
+<h1>Users</h1>
+
+<ul>
+  {{#each model.users as |user|}}
+    <li>
+      <p>Name: {{user.name}}</p>
+      <p>
+        Owned apps:
+        <ul>
+          {{#each user.ownedApps as |app|}}
+            <li>{{app.name}}</li>
+          {{/each}}
+        </ul>
+      </p>
+      <p>
+        Shared apps:
+        <ul>
+          {{#each user.sharedApps as |app|}}
+            <li>{{app.name}}</li>
+          {{/each}}
+        </ul>
+      </p>
+    </li>
+  {{/each}}
+</ul>
+
+<hr>
+
+<h1>Apps</h1>
+
+<ul>
+  {{#each model.apps as |app|}}
+    <li>
+      <p>Name: {{app.name}}</p>
+      <p>
+        Owners:
+        <ul>
+          {{#each app.owners as |user|}}
+            <li>{{user.name}}</li>
+          {{/each}}
+        </ul>
+      </p>
+      <p>
+        Collaborators:
+        <ul>
+          {{#each app.collaborators as |user|}}
+            <li>{{user.name}}</li>
+          {{/each}}
+        </ul>
+      </p>
+    </li>
+  {{/each}}
+</ul>
